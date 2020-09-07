@@ -1,0 +1,9 @@
+.cache/
+.idea/
+dist/
+node_modules/
+.DS_Store
+*.log
+cypress/videos/*
+cypress/screenshots/*
+coverage
