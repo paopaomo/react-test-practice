@@ -51,4 +51,10 @@ describe('login', () => {
       cy.get('#root').contains('Username or password is incorrect');
     });
   });
+
+  it('should jump to register page when click register link given stay in login page', () => {
+    cy.contains('a', 'Register').click();
+
+    cy.url().should('include', '/register');
+  });
 });
