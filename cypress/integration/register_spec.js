@@ -29,4 +29,10 @@ describe('register', () => {
     cy.get('#root').contains('Username is required');
     cy.get('#root').contains('Password is required');
   });
+
+  it('should jump to login page when click Cancel link given stay in register page', () => {
+    cy.contains('a', 'Cancel').click();
+
+    cy.url().should('include', '/login');
+  });
 });
