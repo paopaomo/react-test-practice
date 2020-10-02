@@ -29,6 +29,16 @@ describe('register', () => {
     cy.get('[data-test-id="form"]').contains('Password is required');
   });
 
+  it('should registered failed when register given part of the field are empty', () => {
+    cy.get('input[name=firstName]').type('firstName');
+
+    cy.get('[data-test-id="register"]').click();
+
+    cy.get('[data-test-id="form"]').contains('Last Name is required');
+    cy.get('[data-test-id="form"]').contains('Username is required');
+    cy.get('[data-test-id="form"]').contains('Password is required');
+  });
+
   it('should jump to login page when click Cancel link given stay in register page', () => {
     cy.get('[data-test-id="cancel"]').click();
 
