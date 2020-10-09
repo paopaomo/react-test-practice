@@ -54,7 +54,7 @@ describe('register page', () => {
 
   test('should show validation message when register given part of the field are empty', () => {
     const register = jest.fn();
-    const { getByText, getByTestId } = render(
+    const { getByText, getByTestId, queryAllByText } = render(
       <RegisterPage register={register} />,
       { store },
     );
@@ -63,6 +63,7 @@ describe('register page', () => {
 
     fireEvent.click(getByTestId('register'));
 
+    expect(queryAllByText(/First Name is required/)).toEqual([]);
     getByText('Last Name is required');
     getByText('Username is required');
     getByText('Password is required');
