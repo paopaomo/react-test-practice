@@ -22,10 +22,10 @@ describe('login', () => {
       cy.get('input[name=username]').type(username);
       cy.get('input[name=password]').type(password);
 
-      cy.get('[data-test-id="login"]').click();
+      cy.get('[data-testid="login"]').click();
 
       cy.url().should('include', '/');
-      cy.get('[data-test-id="tip"]').contains(`Hi ${firstName}!`);
+      cy.get('[data-testid="tip"]').contains(`Hi ${firstName}!`);
     });
   });
 
@@ -33,9 +33,9 @@ describe('login', () => {
     cy.get('input[name=username]').type('unregistered account');
     cy.get('input[name=password]').type('123456');
 
-    cy.get('[data-test-id="login"]').click();
+    cy.get('[data-testid="login"]').click();
 
-    cy.get('[data-test-id="alert"]').contains('Username or password is incorrect');
+    cy.get('[data-testid="alert"]').contains('Username or password is incorrect');
   });
 
   it('should login failed when login given a registered account with error password', () => {
@@ -44,21 +44,21 @@ describe('login', () => {
       cy.get('input[name=username]').type(username);
       cy.get('input[name=password]').type('234567');
 
-      cy.get('[data-test-id="login"]').click();
+      cy.get('[data-testid="login"]').click();
 
-      cy.get('[data-test-id="alert"]').contains('Username or password is incorrect');
+      cy.get('[data-testid="alert"]').contains('Username or password is incorrect');
     });
   });
 
   it('should show error message when login given all fields are empty', () => {
-    cy.get('[data-test-id="login"]').click();
+    cy.get('[data-testid="login"]').click();
 
-    cy.get('[data-test-id="form"]').contains('Username is required');
-    cy.get('[data-test-id="form"]').contains('Password is required');
+    cy.get('[data-testid="form"]').contains('Username is required');
+    cy.get('[data-testid="form"]').contains('Password is required');
   });
 
   it('should jump to register page when click register link given stay in login page', () => {
-    cy.get('[data-test-id="register"]').click();
+    cy.get('[data-testid="register"]').click();
 
     cy.url().should('include', '/register');
   });
