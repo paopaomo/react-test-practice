@@ -50,13 +50,6 @@ describe('login', () => {
     });
   });
 
-  it('should show error message when login given all fields are empty', () => {
-    cy.get('[data-testid="login"]').click();
-
-    cy.get('[data-testid="form"]').contains('Username is required');
-    cy.get('[data-testid="form"]').contains('Password is required');
-  });
-
   it('should jump to register page when click register link given stay in login page', () => {
     cy.get('[data-testid="register"]').click();
 
