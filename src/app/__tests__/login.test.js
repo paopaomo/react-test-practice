@@ -39,8 +39,8 @@ describe('login page', () => {
 
     fireEvent.click(getByTestId('login'));
 
-    getByText('Username is required');
-    getByText('Password is required');
+    expect(getByText('Username is required')).toBeTruthy();
+    expect(getByText('Password is required')).toBeTruthy();
   });
 
   test('should show validation message when login given part of the field are empty', () => {
@@ -52,6 +52,6 @@ describe('login page', () => {
     fireEvent.click(getByTestId('login'));
 
     expect(queryAllByText(/Username is required/)).toEqual([]);
-    getByText('Password is required');
+    expect(getByText('Password is required')).toBeTruthy();
   });
 });

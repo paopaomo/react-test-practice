@@ -46,10 +46,10 @@ describe('register page', () => {
 
     fireEvent.click(getByTestId('register'));
 
-    getByText('First Name is required');
-    getByText('Last Name is required');
-    getByText('Username is required');
-    getByText('Password is required');
+    expect(getByText('First Name is required')).toBeTruthy();
+    expect(getByText('Last Name is required')).toBeTruthy();
+    expect(getByText('Username is required')).toBeTruthy();
+    expect(getByText('Password is required')).toBeTruthy();
   });
 
   test('should show validation message when register given part of the field are empty', () => {
@@ -64,8 +64,8 @@ describe('register page', () => {
     fireEvent.click(getByTestId('register'));
 
     expect(queryAllByText(/First Name is required/)).toEqual([]);
-    getByText('Last Name is required');
-    getByText('Username is required');
-    getByText('Password is required');
+    expect(getByText('Last Name is required')).toBeTruthy();
+    expect(getByText('Username is required')).toBeTruthy();
+    expect(getByText('Password is required')).toBeTruthy();
   });
 });
